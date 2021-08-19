@@ -36,7 +36,8 @@ public class Nim
      * include your name as the author!
      */
     public static void printGreeting() {
-
+        System.out.println("Nim");
+        System.out.println("By: Hidden Genius");
     }
 
     /**
@@ -54,7 +55,8 @@ public class Nim
      * (int) Math.floor((Math.random() * 2) + 1)
      */
     public static void setupGame() {
-
+        stonesRemaining = 10;
+        activePlayer = (int) Math.floor((Math.random() * 2) + 1);
     }
 
     /**
@@ -66,7 +68,12 @@ public class Nim
      * "O " to it every iteration!
      */
     public static void printStones() {
-
+        String stoneString = "";
+        for(int i = 0; i < stonesRemaining; i++) {
+            stoneString += "O ";
+        }
+        System.out.println(stoneString);
+        System.out.println("Stones remaining: " + stonesRemaining);
     }
 
     /**
@@ -89,7 +96,29 @@ public class Nim
      * activePlayer to the other player.
      */
     public static void removeStones() {
-
+        int stonesToRemove = 0;
+        while(!(stonesToRemove >= 1 && stonesToRemove <= 3)) {
+            if(activePlayer == 1) {
+                System.out.print("Player One, enter # of stones to remove (1, 2, or 3): ");
+                stonesToRemove = Integer.parseInt(sc.nextLine());
+            } else {
+                System.out.print("Player Two, enter # of stones to remove (1, 2, or 3): ");
+                stonesToRemove = Integer.parseInt(sc.nextLine());
+            }
+            if(stonesToRemove < 1 || stonesToRemove > 3) {
+                System.out.println("Please enter 1, 2, or 3!");
+            }
+            else if(stonesToRemove > stonesRemaining) {
+                stonesToRemove = 0;
+                System.out.println("You can't remove more stones than there are remaining!");
+            }
+        }
+        stonesRemaining -= stonesToRemove;
+        if(activePlayer == 1) {
+            activePlayer = 2;
+        } else {
+            activePlayer = 1;
+        }
     }
 
     /**
@@ -105,7 +134,16 @@ public class Nim
      * quit is set to true. The rest is handled in run().
      */
     public static void processResult() {
-
+        if(activePlayer == 1) {
+            System.out.println("Player One wins!");
+        } else {
+            System.out.println("Player Two wins!");
+        }
+        System.out.print("Play again? (yes or no): ");
+        String keepPlaying = sc.nextLine();
+        if(keepPlaying.equals("no") || keepPlaying.equals("n")) {
+            quit = true;
+        }
     }
 
     /**
@@ -125,6 +163,17 @@ public class Nim
      * 4. quit is true, so print a goodbye message here.
      */
     public static void main(String[] args) {
-
+        printGreeting();
+        sc = new Scanner(System.in);
+        quit = false;
+        while(!quit) {
+            setupGame();
+            while(stonesRemaining > 0) {
+                printStones();
+                removeStones();
+            }
+            processResult();
+        }
+        System.out.println("Thanks for playing! Goodbye!");
     }
 }
