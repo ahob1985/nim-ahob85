@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Nim
+comment0.text=\n\ Write\ a\ description\ of\ class\ Nim\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=void\ printGreeting()
+comment1.text=\n\ Prints\ a\ simple\ greeting.\ Be\ as\ creative\ as\ you\ want\ here.\ Be\ sure\ to\ \n\ include\ your\ name\ as\ the\ author\!\n
+comment2.params=
+comment2.target=void\ setupGame()
+comment2.text=\n\ Initialize\ stonesRemaining\ to\ whatever\ value\ you'd\ like\ the\ game\ to\ \n\ start\ with\ (10\ is\ good).\ Then\ initialize\ activePlayer\ by\ simulating\ a\ \n\ coin\ flip\ to\ decide\ who\ will\ go\ first.\ To\ simulate\ a\ coin\ flip,\ \n\ generate\ a\ random\ integer\ between\ 0\ and\ 1\ (inclusive).\n\ \n\ Here's\ how\ you\ generate\ random\ integers\ in\ general\:\n\ (int)\ Math.floor((Math.random()\ *\ (max\ -\ min\ +\ 1))\ +\ min)\n\ \n\ Here's\ how\ you\ simulate\ a\ coin\ flip\:\n\ (int)\ Math.floor((Math.random()\ *\ (2\ -\ 1\ +\ 1))\ +\ 1)\n\ ...which\ can\ be\ simplified\ to\:\n\ (int)\ Math.floor((Math.random()\ *\ 2)\ +\ 1)\n
+comment3.params=
+comment3.target=void\ printStones()
+comment3.text=\n\ Print\ a\ visual\ representation\ of\ the\ number\ of\ stones\ remaining\ \n\ (e.g.,\ a\ line\ of\ "O"\ characters),\ along\ with\ a\ message\ that\ conveys\ \n\ this\ same\ information.\n\ \n\ Hint\:\ Create\ a\ local\ string\ variable\ and\ use\ a\ for\ loop\ to\ concatenate\ \n\ "O\ "\ to\ it\ every\ iteration\!\n
+comment4.params=
+comment4.target=void\ removeStones()
+comment4.text=\n\ This\ function\ is\ the\ "workhorse"\ of\ the\ program.\ It\ is\ called\ \n\ repeatedly\ in\ run()\ until\ there\ are\ no\ more\ stones\ remaining.\n\ \n\ It\ first\ asks\ the\ currently\ active\ player\ (as\ denoted\ by\ activePlayer)\ \n\ to\ enter\ the\ number\ of\ stones\ they\ would\ like\ to\ remove.\ Players\ \n\ should\ only\ be\ allowed\ to\ enter\ values\ 1,\ 2,\ or\ 3.\ If\ they\ enter\ any\ \n\ other\ value,\ the\ program\ should\ lightly\ scold\ them\ and\ then\ ask\ again,\ \n\ and\ continue\ to\ do\ so\ until\ they\ enter\ a\ valid\ number.\n\ \n\ Moreover,\ if\ players\ enter\ a\ valid\ number\ but\ there\ aren't\ that\ many\ \n\ stones\ remaining\ (e.g.,\ they\ enter\ 3\ but\ there\ are\ only\ 2\ stones\ \n\ remaining),\ the\ program\ should\ tell\ them\ this,\ then\ ask\ for\ input\ \n\ again,\ just\ like\ above.\n\ \n\ When\ players\ have\ finally\ entered\ an\ acceptable\ number,\ this\ function\n\ should\ subtract\ that\ number\ from\ stonesRemaining,\ and\ switch\ \n\ activePlayer\ to\ the\ other\ player.\n
+comment5.params=
+comment5.target=void\ processResult()
+comment5.text=\n\ This\ function\ is\ called\ in\ run()\ when\ there\ are\ no\ more\ stones\ \n\ remaining.\ It\ first\ prints\ a\ "Player\ X\ Wins\!"\ message,\ depending\ on\ \n\ who\ the\ currently\ active\ player\ is\ (this\ was\ switched\ at\ the\ end\ of\ \n\ the\ last\ call\ to\ removeStones()).\ Note\ that\ whoever\ removes\ the\ last\ \n\ stone\ loses,\ which\ is\ already\ accounted\ for\ if\ you\ wrote\ \n\ removeStones()\ correctly\!\n\ \n\ This\ function\ then\ asks\ players\ if\ they\ would\ like\ to\ keep\ playing.\ \n\ If\ players\ choose\ yes,\ nothing\ happens\ here.\ If\ players\ choose\ no,\ \n\ quit\ is\ set\ to\ true.\ The\ rest\ is\ handled\ in\ run().\n
+comment6.params=args
+comment6.target=void\ main(java.lang.String[])
+comment6.text=\n\ This\ is\ the\ function\ that\ calls\ all\ the\ other\ functions.\ Here\ is\ what\n\ it\ should\ do,\ in\ order\:\n\ \n\ 1\:\ Print\ a\ greeting.\n\ 2\:\ Initialize\ the\ sc\ variable\ to\ a\ new\ scanner\ for\ user\ input.\n\ 2\:\ Initialize\ quit\ to\ false.\n\ 3\:\ As\ long\ as\ quit\ is\ false,\ continue\ running\ the\ following\:\n\ \ \ \ \ \ A.\ Set\ up\ the\ game.\n\ \ \ \ \ \ B.\ As\ long\ as\ there\ are\ stones\ remaining,\ continue\ running\ the\ \n\ \ \ \ \ \ \ \ \ following\:\n\ \ \ \ \ \ \ \ \ \ I.\ Print\ the\ stones\ remaining.\n\ \ \ \ \ \ \ \ \ \ II.\ Ask\ players\ to\ remove\ stones.\n\ \ \ \ \ \ C.\ There\ are\ no\ more\ stones\ remaining,\ so\ process\ results\ here.\n\ 4.\ quit\ is\ true,\ so\ print\ a\ goodbye\ message\ here.\n
+numComments=7
